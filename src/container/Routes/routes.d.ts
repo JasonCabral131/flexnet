@@ -2,7 +2,7 @@ export type RootStackParamList = {
     Dashboard: any
     Favorites: any
     MovieDetail: {
-        _id: string
+        data: any
     },
     Search: undefined
     Genre: {

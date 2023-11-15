@@ -24,4 +24,4 @@ export const movieApi = reduxApi.injectEndpoints({
     overrideExisting: false,
 });
 
-export const {useGetAllMovieQuery} = movieApi
+export const {useGetAllMovieQuery, useSearchMovieQuery} = movieApi

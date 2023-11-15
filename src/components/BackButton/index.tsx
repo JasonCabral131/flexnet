@@ -3,6 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Circle } from 'native-base'
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
+import { hitslop } from '../../utils/common'
 type Props = {
     onBack?: () => {}
 }
@@ -14,7 +15,7 @@ const BackButton: React.FC<Props> = ({
     <TouchableOpacity onPress={() => {
         if(onBack) return onBack()
         navigation.goBack()
-    }}>
+    }} hitSlop={hitslop}>
     <Circle p={2} bgColor={'rgba(255, 255, 255, 0.5)'} >
     <AntDesign  name="arrowleft" size={18}/>
     </Circle>

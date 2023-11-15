@@ -26,29 +26,30 @@ const Player: React.FC<Props> = ({uri}) => {
   return (
     <BaseScreen fullScreen  backgroundColor={Colors.black}>
 
-        <Box mt={8} position={"absolute"} width={"100%"} py={3} px={4} zIndex={1000000} justifyContent={"flex-start"} alignItems={"flex-start"}>
+        <Box mt={6} position={"absolute"} width={"100%"} py={3} px={4} zIndex={1000000} justifyContent={"flex-start"} alignItems={"flex-start"}>
            <BackButton />
         </Box>
        <Video 
             source={{uri}}
             useNativeControls
-            resizeMode={"stretch" as any}
+            resizeMode={"contain" as any}
             isLooping
             rate={1.0}
             volume={5}
-            style={
-                {
-                    height: "100%",
-                    width: "100%",
-                    alignSelf: "stretch",
-                }
-            }
             shouldPlay={true}
             isMuted={false}
             //@ts-ignore
             playsInSilentLockedModeIOS
             ignoreSilentSwitcher
-           
+            //@ts-ignore
+            style={
+                {
+                    height: "100%",
+                    width: "100%",
+                    alignSelf: "contain",
+                }
+            }
+  
            
             />
         

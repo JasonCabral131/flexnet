@@ -9,12 +9,14 @@ export type GenreMovieType = {
 }
 type Props = {
     data: Array<GenreMovieType>
+    showFavorite?: boolean
 }
 const  MoviesByGenre: React.FC<Props>= ({
-  data
+  data,
+  showFavorite = true
 }) => {
   const render = useCallback(({item}: any) => {
-    return <MoviesCardGenreInfo data={item}/>
+    return <MoviesCardGenreInfo data={item} showFavorite={showFavorite}/>
   }, [data])
   const memozed = useMemo(() => render , [])
   return (

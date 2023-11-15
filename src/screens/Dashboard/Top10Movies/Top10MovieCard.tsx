@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Colors } from '../../../constant/colors';
 import PlayButton from '../../../components/PlayButton';
 import FavoriteButton from '../../../components/FavoriteButton';
+import { hitslop } from '../../../utils/common';
 
 type Props ={
     data: MovieType
@@ -37,9 +38,15 @@ const Top10MovieCard: React.FC<Props> = ({
                 style={{ flex: 1 }}
             >
                 <View flex={1}   mt={4} mb={5} pl={2}>
-                    <Text style={{ color: 'white', fontSize: 22 }} fontWeight={"extrabold"} mt={5}>{
-                        data?.trackName
-                    }</Text>
+                    <TouchableOpacity onPress={() => {
+                         navigation.navigate("MovieDetail", {
+                            data,
+                        })
+                    }}>
+                        <Text style={{ color: 'white', fontSize: 22 }} fontWeight={"extrabold"} mt={5}>{
+                            data?.trackName
+                        }</Text>
+                    </TouchableOpacity>
                     <HStack justifyContent={"flex-start"} alignItems={"center"} space={2}>
                         <Box pl={1}>
                         <Text style={{ color: 'white', fontSize: 15 }} fontStyle={"normal"} mt={1} >
@@ -49,6 +56,7 @@ const Top10MovieCard: React.FC<Props> = ({
                                         name: data?.primaryGenreName
                                     })
                                 }}
+                                hitSlop={hitslop}
                             >
                                 <Text style={{ color: 'white', fontSize: 15 }} fontFamily={"mono"}>
                                 {data?.primaryGenreName}

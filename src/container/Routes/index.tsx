@@ -5,6 +5,8 @@ import Dashboard from '../../screens/Dashboard'
 import Genre from '../../screens/Genre'
 import TransparentModal from '../../screens/Modal/TransparentModal'
 import Search from '../../screens/Search'
+import MovieDetails from '../../screens/MovieDetails'
+import Favorite from '../../screens/Favorite'
 
 declare global {
   namespace ReactNavigation {
@@ -27,6 +29,8 @@ const Routes = () => {
         presentation: "transparentModal"
       }}/>
        <Stack.Screen name="Search" component={Search} />
+       <Stack.Screen name="MovieDetail" component={MovieDetails} />
+       <Stack.Screen name="Favorites" component={Favorite} />
   </Stack.Navigator>
   )
 }
