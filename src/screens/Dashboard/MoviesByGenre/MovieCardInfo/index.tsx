@@ -32,7 +32,7 @@ const MovieCardInfo: React.FC<Props> = ({
       />
       {
         showFavorite ?    <Box position="absolute" top={2} right={2}>
-        <FavoriteButton trackId={data?.trackId} isCheck={true} size={20}/>
+        <FavoriteButton data={data} size={20}/>
 
       </Box> : null
       }
@@ -58,7 +58,7 @@ const MovieCardInfo: React.FC<Props> = ({
                                     })
                                 }}
                             >
-                                <Text style={{ color: 'white', fontSize: 10 }} fontFamily={"mono"}>
+                                <Text style={{ color: 'white', fontSize: 10 }} fontStyle={"normal"}>
                                 {data?.primaryGenreName}
                             </Text>
                             </TouchableOpacity > ·  {moment(data?.releaseDate).format("YYYY")}

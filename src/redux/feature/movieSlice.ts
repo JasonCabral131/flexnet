@@ -52,7 +52,7 @@ const initialState:MovieState  = {
 };
 
 const slice = createSlice({
-    name: "auth",
+    name: "movies",
     initialState,
     reducers: {
      
@@ -74,4 +74,4 @@ const slice = createSlice({
   export default slice.reducer;
 
 
-  export const currentMovies = (state: RootState)  => state.movie.movies
+  export const currentMovies = (state: RootState)  => state.movies

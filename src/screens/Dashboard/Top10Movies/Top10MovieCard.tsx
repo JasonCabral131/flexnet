@@ -39,9 +39,10 @@ const Top10MovieCard: React.FC<Props> = ({
             >
                 <View flex={1}   mt={4} mb={5} pl={2}>
                     <TouchableOpacity onPress={() => {
-                         navigation.navigate("MovieDetail", {
-                            data,
-                        })
+                        console.log(JSON.stringify(data, null, 3))
+                        //  navigation.navigate("MovieDetail", {
+                        //     data,
+                        // })
                     }}>
                         <Text style={{ color: 'white', fontSize: 22 }} fontWeight={"extrabold"} mt={5}>{
                             data?.trackName
@@ -58,14 +59,14 @@ const Top10MovieCard: React.FC<Props> = ({
                                 }}
                                 hitSlop={hitslop}
                             >
-                                <Text style={{ color: 'white', fontSize: 15 }} fontFamily={"mono"}>
+                                <Text style={{ color: 'white', fontSize: 15 }} fontStyle={"normal"}>
                                 {data?.primaryGenreName}
                             </Text>
                             </TouchableOpacity > ·  {moment(data?.releaseDate).format("YYYY")}
                         </Text>
                         </Box>
                         <Box mt={"4px"}>
-                        <FavoriteButton trackId={data?.trackId} isCheck={true} size={20} />
+                        <FavoriteButton data={data}  size={20} />
                         </Box>
                     </HStack>
                 </View>

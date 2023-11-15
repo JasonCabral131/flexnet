@@ -8,19 +8,22 @@ import {
     PAUSE,
     PERSIST,
     PURGE,
-    REGISTER
+    REGISTER,
+    persistStore,
 } from "redux-persist"
 import { reduxApi } from "./services/reduxApi";
 import movieSlice from "./feature/movieSlice";
+import favoriteSlice from "./feature/favoriteSlice";
 const persistConfig = {
     key: 'root',
-    storage: AsyncStorage, // use AsyncStorage for React Native
-    whitelist: ['auth']
+    storage: AsyncStorage,
 }
 
 const rootReducer = combineReducers({
     [reduxApi.reducerPath]: reduxApi.reducer,
-    movie: movieSlice,
+    movies: movieSlice,
+    favorites: favoriteSlice,
+    
 
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -36,5 +39,7 @@ export const store = configureStore({
       devTools: process.env.NODE_ENV !== 'production',
   })
   setupListeners(store.dispatch)
+  export const persistor = persistStore(store);
+
   export type AppDispatch  = typeof store.dispatch;
   export type RootState  = ReturnType<typeof store.getState>;

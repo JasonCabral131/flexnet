@@ -3,6 +3,7 @@ import { GenreMovieType } from '.'
 import { Box, FlatList, HStack, Text, VStack } from 'native-base'
 import { Colors } from '../../../constant/colors'
 import MovieCardInfo from './MovieCardInfo'
+import { isEmpty } from 'lodash'
 type Props ={
     data: GenreMovieType
     showFavorite?: boolean
@@ -15,6 +16,9 @@ const MoviesCardGenreInfo: React.FC<Props> = ({
     return <MovieCardInfo data={item} showFavorite={showFavorite}/>
   }, [data])
   const memozed = useMemo(() => render , [])
+  if(isEmpty(data?.items)){
+    return null
+  }
   return (
     <VStack  py={3}>
         <HStack justifyContent={"space-between"} px={2} alignItems={"center"}>
