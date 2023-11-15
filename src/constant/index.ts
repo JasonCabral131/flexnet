@@ -1,0 +1,1 @@
+export const itunes = 'https://itunes.apple.com'

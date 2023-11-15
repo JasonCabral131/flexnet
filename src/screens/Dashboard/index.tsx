@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react'
 import BaseScreen from '../../components/BaseScreen'
+import { useGetAllMovieQuery } from '../../redux/services/movieApi'
+import { currentMovies } from '../../redux/feature/movieSlice'
 
 const Dashboard = () => {
-  useEffect(() => {
-    // Fetch movie list from iTunes API
-    fetch('https://itunes.apple.com/search?term=star&country=au&media=movie&all')
-      .then(response => response.json())
-      .then(data => {
-        // const moviesData = data.results;
-        console.log(JSON.stringify(data, null, 3))
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  const {data, isLoading, error} = useGetAllMovieQuery({})
+
   return (
    <BaseScreen fullScreen>
      
