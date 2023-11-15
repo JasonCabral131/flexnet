@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { movieApi } from "../services/movieApi";
 import { RootState } from "../store";
 
-type MovieType = {
+export type MovieType = {
     "wrapperType": string
     "kind": string
     "collectionId": string | number

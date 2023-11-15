@@ -1,6 +1,7 @@
 import { View, StatusBar } from 'react-native'
 import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { Colors } from '../../constant/colors'
 
 type Props = {
     backgroundColor?: string
@@ -8,7 +9,7 @@ type Props = {
     fullScreen?: boolean
 
 }
-const BaseScreen: React.FC<Props> = ({  backgroundColor = 'white',fullScreen = false,children }) => {
+const BaseScreen: React.FC<Props> = ({  backgroundColor = Colors.black,fullScreen = false,children }) => {
     const insets = useSafeAreaInsets()
 
   return (

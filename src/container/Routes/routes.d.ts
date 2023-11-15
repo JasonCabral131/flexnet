@@ -5,4 +5,10 @@ export type RootStackParamList = {
         _id: string
     },
     Search: undefined
+    Genre: {
+        name: string
+    },
+    TransparentModal: {
+        content: any
+    }
 }

@@ -10,7 +10,15 @@ export const movieApi = reduxApi.injectEndpoints({
                 };
               },
               providesTags: ["movie"],
-        })
+        }),
+        searchMovie: builder.query({
+          query: (args) => {
+            const {search = ""} = args
+              return {
+                url: `/search?term==${search}&country=au&media=movie&all`,
+              };
+            },
+      })
       
     }),
     overrideExisting: false,
