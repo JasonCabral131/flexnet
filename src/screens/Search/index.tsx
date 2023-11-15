@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import BaseScreen from '../../components/BaseScreen'
 
 import Header from '../../components/Header'
@@ -8,10 +8,12 @@ import { useSearchMovieQuery } from '../../redux/services/movieApi'
 import SearchLoader from './SearchLoader'
 import { isArray } from 'lodash'
 import MoviesByGenre, { GenreMovieType } from '../Dashboard/MoviesByGenre'
+import { useRoute } from '@react-navigation/native'
 
 const Search = () => {
-  const [search, setSearch] = useState("")
-  const {data, isLoading, error} = useSearchMovieQuery({search})
+  const {value = ""}: any = useRoute().params || {}
+  const [search, setSearch] = useState(value)
+  const {data, isLoading, error, refetch} = useSearchMovieQuery({search})
   const onChange = useCallback((val: string) => {
     setSearch(val)
   }, [])
@@ -30,6 +32,12 @@ const Search = () => {
       genreMap[genre].push(item);
     });
   }
+  useEffect(() => {
+    if(value){
+      setSearch(value)
+      refetch()
+    }
+  }, [value])
   const resultByGenre = Object.entries(genreMap).map(([genre, items]) => ({
     genre,
     items,

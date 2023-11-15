@@ -4,7 +4,9 @@ export type RootStackParamList = {
     MovieDetail: {
         data: any
     },
-    Search: undefined
+    Search?: {
+        value: string
+    }
     Genre: {
         name: string
     },

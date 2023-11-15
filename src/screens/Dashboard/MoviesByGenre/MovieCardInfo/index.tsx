@@ -5,7 +5,7 @@ import FavoriteButton from '../../../../components/FavoriteButton'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Colors } from '../../../../constant/colors'
 import { TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import moment from 'moment'
 type Props ={
     data: MovieType
@@ -15,6 +15,7 @@ const MovieCardInfo: React.FC<Props> = ({
     data,
     showFavorite = true
 }) => {
+    const route = useRoute()
   const navigation = useNavigation()
   return (
     <TouchableOpacity onPress={  () => {
@@ -53,8 +54,13 @@ const MovieCardInfo: React.FC<Props> = ({
                         <Text style={{ color: 'white', fontSize: 10 }} fontStyle={"normal"} mt={1} >
                             {'A$'}{data?.trackPrice} · <TouchableOpacity 
                                 onPress={() => {
-                                    navigation.navigate("Genre", {
-                                        name: data?.primaryGenreName
+                                   if(route.name === "Search"){
+                                        return navigation.setParams({
+                                            value: data?.primaryGenreName
+                                        })
+                                   }
+                                    navigation.navigate("Search", {
+                                        value: data?.primaryGenreName
                                     })
                                 }}
                             >

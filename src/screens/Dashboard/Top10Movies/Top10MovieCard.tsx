@@ -39,10 +39,10 @@ const Top10MovieCard: React.FC<Props> = ({
             >
                 <View flex={1}   mt={4} mb={5} pl={2}>
                     <TouchableOpacity onPress={() => {
-                        console.log(JSON.stringify(data, null, 3))
-                        //  navigation.navigate("MovieDetail", {
-                        //     data,
-                        // })
+                     
+                         navigation.navigate("MovieDetail", {
+                            data,
+                        })
                     }}>
                         <Text style={{ color: 'white', fontSize: 22 }} fontWeight={"extrabold"} mt={5}>{
                             data?.trackName
@@ -53,8 +53,8 @@ const Top10MovieCard: React.FC<Props> = ({
                         <Text style={{ color: 'white', fontSize: 15 }} fontStyle={"normal"} mt={1} >
                             {'A$'}{data?.trackPrice} · <TouchableOpacity 
                                 onPress={() => {
-                                    navigation.navigate("Genre", {
-                                        name: data?.primaryGenreName
+                                    navigation.navigate("Search", {
+                                        value: data?.primaryGenreName
                                     })
                                 }}
                                 hitSlop={hitslop}
