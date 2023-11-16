@@ -18,6 +18,7 @@ Make sure you have the following installed on your machine:
 1. Install Expo CLI globally:
 
   yarn global add expo-cli
+
 2. git clone https://github.com/JasonCabral131/flexnet.git
 
 3. cd flexnet
@@ -27,3 +28,5 @@ Make sure you have the following installed on your machine:
 5. expo install
 
 6. yarn ios
+
+7. download the APK flexnet/flexnet.apk
