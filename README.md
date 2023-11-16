@@ -1,6 +1,6 @@
-# Your Expo Application Name
+# FlexNet
 
-Welcome to [Your Expo Application Name]! This mobile application is built using Expo, making it easy to develop and deploy cross-platform mobile apps with React Native.
+Welcome to FlexNet! This mobile application is built using Expo, making it easy to develop and deploy cross-platform mobile apps with React Native.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ Make sure you have the following installed on your machine:
 
 3. cd flexnet
 
-4. yarn add 
+4. yarn 
 
 5. expo install
 
